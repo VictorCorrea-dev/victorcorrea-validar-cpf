@@ -1,8 +1,8 @@
- Validador de CPF
+# Validador de CPF
 
-Objetivo: Este programa tem como finalidade validar um CPF digitado pelo usuário.
+## Objetivo: Este programa tem como finalidade validar um CPF digitado pelo usuário.
 
-O programa:
+## O programa:
 Lê o CPF inserido
 Remove traços e pontos
 Verifica se o CPF é válido utilizando o cálculo dos dígitos verificadores
