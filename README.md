@@ -1,6 +1,7 @@
 # Validador de CPF
 
-## Objetivo: Este programa tem como finalidade validar um CPF digitado pelo usuário.
+## Objetivo: 
+Este programa tem como finalidade validar um CPF digitado pelo usuário.
 
 ## O programa:
 Lê o CPF inserido
