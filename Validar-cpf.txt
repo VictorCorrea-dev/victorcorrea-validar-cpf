@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class validar_cpf {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite o CPF: ");
+        String cpf = sc.nextLine();
+
+        cpf = cpf.replace(".", "").replace("-", "");
+
+        if (cpf.length() != 11) {
+            System.out.println("CPF inválido!");
+            return;
+        }
+
+        // Verifica se todos os números são iguais
+        boolean todosIguais = true;
+        for (int i = 1; i < 11; i++) {
+            if (cpf.charAt(i) != cpf.charAt(0)) {
+                todosIguais = false;
+            }
+        }
+
+        if (todosIguais) {
+            System.out.println("CPF inválido!");
+            return;
+        }
+
+        // Primeiro dígito
+        int soma = 0;
+        for (int i = 0; i < 9; i++) {
+            int num = cpf.charAt(i) - '0';
+            soma += num * (10 - i);
+        }
+
+        int resto = soma % 11;
+        int dig1;
+        if (resto < 2) {
+            dig1 = 0;
+        } else {
+            dig1 = 11 - resto;
+        }
+
+        // Segundo dígito
+        soma = 0;
+        for (int i = 0; i < 10; i++) {
+            int num = cpf.charAt(i) - '0';
+            soma += num * (11 - i);
+        }
+
+        resto = soma % 11;
+        int dig2;
+        if (resto < 2) {
+            dig2 = 0;
+        } else {
+            dig2 = 11 - resto;
+        }
+
+        // verificação final
+        if (dig1 == (cpf.charAt(9) - '0') && dig2 == (cpf.charAt(10) - '0')) {
+            System.out.println("CPF válido!");
+        } else {
+            System.out.println("CPF inválido!");
+        }
+    }
+}
